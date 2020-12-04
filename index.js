@@ -26,13 +26,18 @@ const questions = [
         name: 'Usage',
     },
     {
-        type: 'input',
-        message: 'liscense',
+        type: 'list',
         name: 'Liscenses',
+        message: 'liscense',
+        choices: [
+            'mit',
+            'ms-pl',
+            'zlib',
+        ]
     },
     {
         type: 'input',
-        message: 'Questions',
+        message: 'Please enter your Git-Hub profile link',
         name: 'Questions',
     },
 ];
@@ -47,7 +52,7 @@ const genRead = generateMarkdown(answers)
 // function to initialize program
 function init() {
     inquirer.prompt(questions).then((answers) => {
-        const fileName = "README.txt";
+        const fileName = "README.md";
         writeToFile(fileName, answers)
     })
 
